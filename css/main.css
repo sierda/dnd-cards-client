@@ -1,0 +1,51 @@
+body {
+  margin:0px;
+  padding:8px;
+  overflow-x:hidden;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  background: aliceblue;
+}
+
+h5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: cornflowerblue;
+}
+
+.spellSet {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+}
+
+.spellDesc {
+  max-height: 450px;
+  min-height: 350px;
+  overflow: auto;
+}
+
+.dropdowns {
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.dropdownClass {
+  width:50%;
+}
+
+.dropdownLevel {
+  width:40%;
+}
+
+.dropdownItem {
+  font-size: xx-large;
+  font-weight: 300;
+  height: 30px;
+  color: cornflowerblue;
+  padding-left: 15px;
+}
+
+.checkboxUpto {
+  width:10%;
+  align-self:center;
+}
