@@ -2,7 +2,7 @@ var webpack = require("webpack");
 
 module.exports = {
     entry: {
-        helloWorld: './main.js'
+        dnd: './main.js'
     },
     output: {
         filename: './bundle.js'

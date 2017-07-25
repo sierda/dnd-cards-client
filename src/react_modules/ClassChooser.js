@@ -1,5 +1,7 @@
 import $ from "jquery";
-import { Checkbox, Dropdown, Snackbar } from 'react-toolbox';
+import Checkbox from 'react-toolbox/lib/checkbox';
+import Dropdown from 'react-toolbox/lib/dropdown';
+import Snackbar from 'react-toolbox/lib/snackbar';
 import React from 'react';
 import SpellSet from './SpellSet.js'
 
@@ -40,7 +42,7 @@ export default class ClassChooser extends React.Component
   loadClassesFromServer() 
   {
     $.ajax({
-      url: "http://dsierra.io:3000/classes/all",
+      url: "http://dnd.dsierra.io/api/classes/all",
       dataType: 'json',
       success: this.setClasses,
       error: this.showSnackBar
@@ -50,7 +52,7 @@ export default class ClassChooser extends React.Component
   loadLevelsFromServer() 
   {
     $.ajax({
-      url: "http://dsierra.io:3000/classes/" + this.state.tempClass + "/spells",
+      url: "http://dnd.dsierra.io/api/classes/" + this.state.tempClass + "/spells",
       dataType: 'json',
       success: this.setLevels,
       error: this.showSnackBar

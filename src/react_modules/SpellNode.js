@@ -1,5 +1,6 @@
 import $ from "jquery";
-import { Button, Card, CardText, CardTitle, CardActions } from 'react-toolbox';
+import { Button, IconButton } from 'react-toolbox/lib/button';
+import { Card, CardText, CardTitle, CardActions } from 'react-toolbox/lib/card';
 import Markdown from 'react-remarkable';
 import React from 'react';
 import SpellManager from './SpellManager';
@@ -25,7 +26,7 @@ export default class SpellNode extends React.Component
   loadSpellFromServer() 
   {  
     $.ajax({
-      url: "http://dsierra.io:3000/spells/" + this.state.spell,
+      url: "http://dnd.dsierra.io/api/spells/" + this.state.spell,
       dataType: 'json',
       success: this.setData,
       error: function(xhr, status, err) {
@@ -55,8 +56,12 @@ export default class SpellNode extends React.Component
     return this.state.saved ? "Remove" : "Save";
   }
   
-  onButtonPress() 
-  {  
+  onButtonPress(e)
+  {
+    // Only left click
+    if(e.nativeEvent.which != 1)
+      return;
+    
     if(this.state.saved) 
     {  
        SpellManager.deleteSpell(this.state.spell);
@@ -84,15 +89,15 @@ export default class SpellNode extends React.Component
   render() 
   {  
     return (
-      <Card raised style={{width:'450px', margin:'15px'}}>
+      <Card raised style={{width:'425px', margin:'15px'}}>
         <CardTitle title={this.state.spell_data.name} subtitle={this.state.spell_data.type}/>
-        <CardText><div>
+        <CardText className="cardFont"><div>
           Casting Time: <em>{this.state.spell_data.casting_time}</em><br/>
           Range: <em>{this.state.spell_data.range}</em><br/>
           Components: <em title={this.state.spell_data.componentsDetail}>{this.state.spell_data.components}</em><br/>
           Duration: <em>{this.state.spell_data.duration}</em><br/>
         </div></CardText>
-        <CardText><div className="spellDesc" dangerouslySetInnerHTML={{__html:this.state.spell_data.primary_description}} /></CardText>
+        <CardText><div className="spellDesc cardFont" dangerouslySetInnerHTML={{__html:this.state.spell_data.primary_description}} /></CardText>
         <CardActions>
           <Button label={this.actionString()} onMouseUp={this.onButtonPress}/>
         </CardActions>

@@ -19,9 +19,12 @@ h5 {
 }
 
 .spellDesc {
-  max-height: 450px;
-  min-height: 350px;
+  height: 300px;
   overflow: auto;
+}
+
+.cardFont {
+  font-size:1.2rem;
 }
 
 .dropdowns {
@@ -46,6 +49,7 @@ h5 {
 }
 
 .checkboxUpto {
-  width:10%;
+  width:8%;
+  padding-left: 2%;
   align-self:center;
 }

@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { Card, CardTitle } from 'react-toolbox';
+import { Card, CardTitle } from 'react-toolbox/lib/card';
 import React from 'react';
 import SpellManager from './SpellManager';
 import SpellNode from './SpellNode.js'
@@ -23,7 +23,7 @@ export default class SpellSet extends React.Component
   
   loadSpellsFromServer() 
   {
-    var url = "http://dsierra.io:3000/classes/" + this.props.class + "/spells/" + this.props.level;
+    var url = "http://dnd.dsierra.io/api/classes/" + this.props.class + "/spells/" + this.props.level;
     
     if(this.props.upto) 
     {
